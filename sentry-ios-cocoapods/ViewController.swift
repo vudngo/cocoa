@@ -35,6 +35,12 @@ class ViewController: UIViewController {
             n/d
             d=d+1
         }
+        
+        let event = Event(level: .debug)
+        event.message = "Test Message"
+        Client.shared?.send(event: event) { (error) in
+            // Optional callback after event has been send
+        }
     }
     
     @IBAction func causeCrash(_ sender: Any) {
