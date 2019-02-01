@@ -29,17 +29,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sendMessage(_ sender: Any) {
+        let event = Event(level: .debug)
+        event.message = "This is a custom event"
+        Client.shared?.send(event: event) { (error) in
+            // Optional callback after event has been send
+        }
         var n = 10
         var d = 0
         while d <= 10 {
             n/d
             d=d+1
-        }
-        
-        let event = Event(level: .debug)
-        event.message = "Test Message"
-        Client.shared?.send(event: event) { (error) in
-            // Optional callback after event has been send
         }
     }
     
