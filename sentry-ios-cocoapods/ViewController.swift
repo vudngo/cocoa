@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         do {
-            Client.shared = try Client(dsn: "https://4b5132d21b6d4470a6083c7048950eea:a192729380d84a71b97c0b74b435c4ee@sentry.io/265601")
+            Client.shared = try Client(dsn: "https://bb83b7178b7b46aa96f69eb77d2038b2@sentry.io/1385152")
             try Client.shared?.startCrashHandler()
             Client.logLevel = .verbose
             Client.shared?.tags = ["a": "b"]
@@ -29,10 +29,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sendMessage(_ sender: Any) {
-        let event = Event(level: .debug)
-        event.message = "Runtime Error"
-        Client.shared?.send(event: event) { (error) in
-            // Optional callback after event has been send
+        var n = 10
+        var d = 0
+        while d <= 10 {
+            n/d
+            d=d+1
         }
     }
     

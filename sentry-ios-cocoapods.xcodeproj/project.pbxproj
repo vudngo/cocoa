@@ -313,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which sentry-cli >/dev/null; then\nexport SENTRY_ORG=testorg-az\nexport SENTRY_PROJECT=cocoa\n# export SENTRY_AUTH_TOKEN=<EITHER_REPLACE_OR_USE_EXISTING_ENV_VAR>\nERROR=$(sentry-cli upload-dsym 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi";
+			shellScript = "if which sentry-cli >/dev/null; then\nexport SENTRY_ORG=testorg-az\nexport SENTRY_PROJECT=vu-cocoa\nexport SENTRY_AUTH_TOKEN=YOU_AUTH_TOKEN\nERROR=$(sentry-cli upload-dif \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
 		};
 		9EA2AA1335AF418EC02418B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
